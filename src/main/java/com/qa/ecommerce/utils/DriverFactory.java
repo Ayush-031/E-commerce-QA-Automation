@@ -5,9 +5,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.Map;
+
 public class DriverFactory {
 
-    public static WebDriver createDriver(String browser) {
+  public static WebDriver createDriver(String browser, boolean headless){
 
         if (browser == null || browser.isBlank()) {
             browser = "chrome";
@@ -17,21 +19,28 @@ public class DriverFactory {
 
             case "chrome":
 
-                ChromeOptions options = new ChromeOptions();
+    ChromeOptions options = new ChromeOptions();
 
-                // Disable Chrome password manager
-                options.addArguments("--disable-notifications");
+    if (headless) {
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+    }
 
-                options.setExperimentalOption(
-                        "prefs",
-                        java.util.Map.of(
-                                "credentials_enable_service", false,
-                                "profile.password_manager_enabled", false,
-                                "profile.password_manager_leak_detection", false
-                        )
-                );
+    options.addArguments("--window-size=1920,1080");
+    options.addArguments("--disable-notifications");
 
-                return new ChromeDriver(options);
+    options.setExperimentalOption(
+            "prefs",
+            java.util.Map.of(
+                    "credentials_enable_service", false,
+                    "profile.password_manager_enabled", false,
+                    "profile.password_manager_leak_detection", false
+            )
+    );
+
+    return new ChromeDriver(options);
 
             case "firefox":
                 return new FirefoxDriver();

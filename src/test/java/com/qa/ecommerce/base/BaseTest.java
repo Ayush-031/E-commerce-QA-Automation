@@ -18,12 +18,13 @@ public class BaseTest {
     public void setUp() {
 
         driver = DriverFactory.createDriver(
-                ConfigReader.get("browser")
-        );
+        ConfigReader.get("browser"),
+        Boolean.parseBoolean(ConfigReader.get("headless"))
+);
 
         driver.manage().window().maximize();
     }
-    
+
     public WebDriver getDriver() {
     return driver;
 }

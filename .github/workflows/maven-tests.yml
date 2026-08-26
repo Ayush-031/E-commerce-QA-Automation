@@ -25,4 +25,4 @@ jobs:
           cache: maven
 
       - name: Run automated tests
-        run: mvn clean test
+       run: mvn clean test -Dheadless=true 
