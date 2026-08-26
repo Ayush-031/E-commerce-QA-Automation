@@ -2,10 +2,14 @@ package com.qa.ecommerce.listeners;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.qa.ecommerce.base.BaseTest;
 import com.qa.ecommerce.utils.ExtentReportManager;
+import com.qa.ecommerce.utils.ScreenshotUtils;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import org.testng.ITestContext;
 
 public class ExtentTestListener implements ITestListener {
 
@@ -19,7 +23,9 @@ public class ExtentTestListener implements ITestListener {
     public void onTestStart(ITestResult result) {
 
         ExtentTest extentTest =
-                extent.createTest(result.getMethod().getMethodName());
+                extent.createTest(
+                        result.getMethod().getMethodName()
+                );
 
         test.set(extentTest);
     }
@@ -34,6 +40,30 @@ public class ExtentTestListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
 
         test.get().fail(result.getThrowable());
+
+        Object testInstance = result.getInstance();
+
+        if (testInstance instanceof BaseTest) {
+
+            WebDriver driver =
+                    ((BaseTest) testInstance).getDriver();
+
+            if (driver != null) {
+
+                String screenshotPath =
+                        ScreenshotUtils.captureScreenshot(
+                                driver,
+                                result.getMethod().getMethodName()
+                        );
+
+                if (screenshotPath != null) {
+
+                    test.get().addScreenCaptureFromPath(
+                            screenshotPath
+                    );
+                }
+            }
+        }
     }
 
     @Override
@@ -43,8 +73,7 @@ public class ExtentTestListener implements ITestListener {
     }
 
     @Override
-    public void onFinish(
-            org.testng.ITestContext context) {
+    public void onFinish(ITestContext context) {
 
         extent.flush();
     }

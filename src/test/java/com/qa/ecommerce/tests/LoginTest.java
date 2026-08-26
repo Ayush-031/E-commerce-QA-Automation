@@ -22,11 +22,11 @@ public class LoginTest extends BaseTest {
                 ConfigReader.get("password")
         );
 
-        Assert.assertEquals(
-                productsPage.getProductsTitle(),
-                "Products",
-                "Products page was not displayed"
-        );
+      Assert.assertEquals(
+        productsPage.getProductsTitle(),
+        "Products",
+        "Products page was not displayed"
+);
     }
 
     @Test(groups = {"regression"})
