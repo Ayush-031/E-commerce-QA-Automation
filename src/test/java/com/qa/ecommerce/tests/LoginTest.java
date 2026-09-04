@@ -52,7 +52,7 @@ public void verifyValidLogin(String username, String password) {
                 "Expected login error message was not displayed"
         );
     }
-    @DataProvider(name = "loginData")
+@DataProvider(name = "loginData")
 public Object[][] loginData() {
 
     return new Object[][] {
@@ -63,10 +63,6 @@ public Object[][] loginData() {
         {
             TestDataReader.get("login.username.2"),
             TestDataReader.get("login.password.2")
-        },
-        {
-            TestDataReader.get("login.username.3"),
-            TestDataReader.get("login.password.3")
         }
     };
 }

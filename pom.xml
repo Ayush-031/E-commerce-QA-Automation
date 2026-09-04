@@ -9,19 +9,22 @@
     <artifactId>ecommerce-qa-automation</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+<properties>
+    <maven.compiler.release>17</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+</properties>
+
+
 
     <dependencies>
 
         <!-- Selenium -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.35.0</version>
-        </dependency>
+       <dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.48.0</version>
+</dependency>
 
         <!-- TestNG -->
         <dependency>
@@ -36,6 +39,20 @@
     <groupId>com.aventstack</groupId>
     <artifactId>extentreports</artifactId>
     <version>5.1.2</version>
+</dependency>
+
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured</artifactId>
+    <version>5.5.6</version>
+    <scope>test</scope>
+</dependency> 
+
+<!-- SLF4J Logging -->
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+    <version>2.0.17</version>
 </dependency>
 
     </dependencies>
