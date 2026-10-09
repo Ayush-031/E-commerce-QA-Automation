@@ -5,7 +5,7 @@ The framework follows the Page Object Model (POM) design pattern and provides re
 
 ----------------------------------
 
-## 🚀 Features
+##  Features
 
 - Selenium WebDriver-based UI automation
 - Page Object Model (POM) architecture
@@ -36,7 +36,7 @@ The framework follows the Page Object Model (POM) design pattern and provides re
 
 ---------------------------------
 
-## 📁 Project Structure
+##  Project Structure
 
 ecommerce-qa-automation/
 │
@@ -87,7 +87,7 @@ ecommerce-qa-automation/
 
 --------------------------------
 
-## 🏗️ Framework Architecture
+##  Framework Architecture
 The framework separates test logic, page interactions, utilities, and configuration to improve maintainability and reusability.
 
 ----------------------------------
@@ -128,7 +128,7 @@ WebDriver termination
 Test classes extend BaseTest to reuse the common setup and teardown logic.
 -----------------------------------
 
-## 🧪 Test Coverage
+##  Test Coverage
 The current automation suite covers critical e-commerce workflows.
 
 Login
@@ -142,7 +142,7 @@ Checkout information
 Checkout workflow
 Order completion
 
-▶️ Running the Tests
+ Running the Tests
 Run the Complete Test Suite
 mvn clean test
 Run Smoke Tests
@@ -150,7 +150,7 @@ mvn clean test -Dgroups=smoke
 Run Regression Tests
 mvn clean test -Dgroups=regression
 
-📊 Test Execution
+ Test Execution
 The current test suite successfully executes:
 Tests run: 4
 Failures: 0
@@ -167,7 +167,7 @@ Regression Test Execution
 
 -------------------------------
 
-## ⚙️ Configuration
+##  Configuration
 Test configuration is maintained separately from Java test code using a properties file.
 Example:
 browser=chrome
@@ -179,7 +179,7 @@ This allows configuration changes without modifying the test implementation.
 
 ------------------------------
 
-## 🔄 Test Execution Flow
+##  Test Execution Flow
 TestNG Test
      ↓
  BaseTest
@@ -198,7 +198,7 @@ Test Result
 
 ----------------------------
 
-## 🎯 Design Principles
+##  Design Principles
 
 The framework focuses on:
 Reusability
@@ -212,13 +212,13 @@ Clean test and framework separation
 
 ---------------------------
 
-## 🔐 Test Data Management
+##  Test Data Management
 Test data and configuration are maintained separately from the test implementation.
 This approach helps avoid hard-coding configuration values directly inside test classes and makes the framework easier to maintain.
 
 -----------------------------
 
-## 📈 Future Improvements
+##  Future Improvements
 Planned improvements include:
 HTML test reporting
 Automatic screenshots on test failure
@@ -230,7 +230,7 @@ GitHub Actions CI/CD integration
 Enhanced test reporting and dashboards
 ------------------------------
 
-## 👨‍💻 Author
+##  Author
 Ayush Kumar Pandey
 
 This project demonstrates practical experience with:
